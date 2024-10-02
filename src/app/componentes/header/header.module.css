@@ -1,0 +1,12 @@
+.header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #17131379;
+    width: 100%;
+    min-height: 100px;
+    color: white;
+    position: fixed;
+    z-index: 100;
+}
