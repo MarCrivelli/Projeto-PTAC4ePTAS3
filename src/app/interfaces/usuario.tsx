@@ -1,7 +1,9 @@
 interface Usuario{
-    nome : string,
-    idade : number,
-    email ?: string
+    id: number,
+    nome: string,
+    email: string,
+    password: string,
+    tipo: string
 }
 
 export default Usuario;
