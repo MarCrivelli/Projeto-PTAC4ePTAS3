@@ -5,7 +5,7 @@
     align-items: center;
     width: 100%;    
     min-height: 100vh;
-    background: linear-gradient(75deg, rgb(11, 18, 21), rgb(13, 24, 31),rgb(17, 30, 36), rgb(20, 37, 45),rgb(17, 30, 36), rgb(25, 46, 56));
+    background-color: white;
   }
 
   .cardLogin{
@@ -53,7 +53,7 @@
     align-items: center;
     justify-content: center;
     margin-top: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
   }
 
   .inputLogin{
@@ -61,6 +61,24 @@
     border: 1px solid #0f2d3f;
     margin-bottom: 15px;
     width: 300px;
+  }
+
+  .ajusteAjuda{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .iconeAjuda{
+    background-color: rgb(16, 16, 16);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    padding: 7px;
+  }
+
+  .iconeAjuda:hover{
+    cursor: help;
   }
 
   .botaoLogin{
