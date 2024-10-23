@@ -1,0 +1,2 @@
+Lembrete: sempre acessar a pasta antes de executar os comandos de "npm i" e "npm run dev". Para fazer isso, digite cd + o nome da pasta,
+no caso aqui temos a pasta "back", onde estão os arquivos de PTAS e a pasta "front", onde estão os arquivos de PTAC.
