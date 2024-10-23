@@ -1,2 +1,8 @@
-Lembrete: sempre acessar a pasta antes de executar os comandos de "npm i" e "npm run dev". Para fazer isso, digite cd + o nome da pasta,
+Lembretes: 
+
+    Sempre acessar a pasta antes de executar os comandos de "npm i" e "npm run dev". Para fazer isso, digite cd + o nome da pasta,
 no caso aqui temos a pasta "back", onde estão os arquivos de PTAS e a pasta "front", onde estão os arquivos de PTAC.
+
+    Se for trocar de pasta, ou seja, se estiver fazendo a parte de PTAS e quiser fazer uma parte de PTAC, ou vice-versa, digite no 
+terminal "cd .." para sair da pasta e depois digite "cd + o nome da pasta que deseja abrir".
+
