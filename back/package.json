@@ -11,7 +11,11 @@
   "description": "",
   "dependencies": {
     "@prisma/client": "^5.20.0",
+    "bcryptjs": "^2.4.3",
     "express": "^4.21.1",
     "prisma": "^5.20.0"
   }
 }
+// faltando nodemon
+// npm i jsonwebtoken nao deu certo (ja foi importado)
+//colocar no .env SECRET_KEY="193784dnafg" (pode por qualquer coisa)
