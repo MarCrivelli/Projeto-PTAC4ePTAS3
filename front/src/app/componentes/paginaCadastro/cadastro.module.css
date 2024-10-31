@@ -25,10 +25,10 @@
     height: 600px;
     width: 1000px;
     object-fit: cover;
-    background-image: url('https://i.pinimg.com/1200x/f4/04/71/f4047136eed63d88be00b61a80c00502.jpg');
+    background-image: url('https://img.freepik.com/fotos-gratis/astronomia-do-ceu-noturno-galactico-e-ciencia-combinaram-ia-generativa_188544-9656.jpg');
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; 
     background-color: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(10px); 
     border-radius: 15px; 

@@ -1,8 +1,6 @@
 'use client'
 import Image from "next/image";
 import style from "./cadastro.module.css";
-import Header from "../header/header";
-import Footer from "../footer/footer";
 import { useState } from "react";
 import Usuario from "@/app/interfaces/usuario";
 import { useRouter } from "next/router";
@@ -31,8 +29,7 @@ export default function Cadastro() {
 
 
   return (
-    <div className={style.conteudoDoSite}>
-        <Header/>        
+    <div className={style.conteudoDoSite}> 
             <div className={style.cardLogin}>              
                 <div className={style.blocoLogin}>
                   <div className={style.conteudoBlocoLogin}> 
@@ -54,7 +51,6 @@ export default function Cadastro() {
                   </div>
                 </div>
             </div>
-        <Footer/>
     </div>
   );
 }

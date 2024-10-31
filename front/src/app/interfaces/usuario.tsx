@@ -1,3 +1,5 @@
+import React from 'react';
+
 interface Usuario{
     id?: number,
     nome: string,
