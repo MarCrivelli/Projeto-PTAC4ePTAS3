@@ -91,7 +91,7 @@
     top: -50%;
     width: 70px;
     height: 70px;
-    background-image: linear-gradient(50deg, #ffc400, #ffc400, #ffcf2f);
+    background: linear-gradient(45deg, #ff4a90, #ff7a8b) no-repeat 0 0 / cover;
     box-sizing: border-box;
     border-radius: 50%;
     border: 6px solid #222327;

@@ -1,15 +1,34 @@
 'use client'
 import React, { useState } from "react";
+import { useRouter } from 'next/navigation'; // Importa o roteador do Next.js
 import style from "./header.module.css";
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import Cadastro from "../paginaAutenticacao/page"
 
 export default function Header() {
-  // Define o estado para controlar a tela ativa
+  const router = useRouter(); // Inicializa o roteador do Next.js
   const [telaAtiva, setTelaAtiva] = useState("início");
 
-  // Função para alternar entre as telas, com tipo explícito para 'novaTela'
+  // Função para alternar entre as telas
   const handleNavigation = (novaTela: string) => {
     setTelaAtiva(novaTela);
+    // Redireciona para a rota correspondente
+    switch (novaTela) {
+      case 'início':
+        router.push('/');
+        break;
+      case 'login':
+        router.push('../paginaCadastro/page');
+        break;
+      case 'informações':
+        router.push('/informacoes');
+        break;
+      case 'mais':
+        router.push('/mais');
+        break;
+      default:
+        router.push('/inicio');
+    }
   };
 
   return (
@@ -17,7 +36,7 @@ export default function Header() {
       <div className={style.navbar}>
         <ul className={style.ul}>
           
-          {/* Leva para a página home */}
+          {/* Link para a página Início */}
           <li
             className={`${style.li} ${telaAtiva === "início" ? style.ativo : ""}`}
             onClick={() => handleNavigation("início")}
@@ -30,7 +49,7 @@ export default function Header() {
             </a>
           </li>
 
-          {/*Leva pra a página "login"*/}
+          {/* Link para a página Login */}
           <li
             className={`${style.li} ${telaAtiva === "login" ? style.ativo : ""}`}
             onClick={() => handleNavigation("login")}
@@ -39,11 +58,11 @@ export default function Header() {
               <span className={style.icone}>
                 <i className="fa-solid fa-user"></i>
               </span>
-              <span className={style.textoNav}>Login</span>
+              <span className={style.textoNav}>Autenticar Usuário</span>
             </a>
           </li>
 
-          {/* Leva pra a página "informações" */}
+          {/* Link para a página Informações */}
           <li
             className={`${style.li} ${telaAtiva === "informações" ? style.ativo : ""}`}
             onClick={() => handleNavigation("informações")}
@@ -56,7 +75,7 @@ export default function Header() {
             </a>
           </li>
 
-          {/* Leva pra a página "mais" */}
+          {/* Link para a página Mais */}
           <li
             className={`${style.li} ${telaAtiva === "mais" ? style.ativo : ""}`}
             onClick={() => handleNavigation("mais")}

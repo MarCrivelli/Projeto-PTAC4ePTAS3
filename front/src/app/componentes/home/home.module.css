@@ -1,4 +1,7 @@
 .conteudoDoSite{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     min-height: 84vh;
     background-color: rgb(240, 237, 237);
-}
+  }
