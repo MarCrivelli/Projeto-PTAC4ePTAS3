@@ -1,12 +1,188 @@
-.header{
+@import url("https://use.fontawesome.com/releases/v6.4.2/css/all.css");
+
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+
+.fundo{
+    height: 16vh;
     display: flex;
-    flex-direction: row;
+    justify-content: flex-end;
     align-items: center;
-    justify-content: space-between;
-    background-color: #17131379;
+    flex-direction: column;
+    background: #222327;
+    margin: 0;
+}
+
+.icone, .textoNav{
+    color: #091727;
+}
+
+.navbar{
+    position: relative;
+    margin-bottom: 5px;
+    width: 340px;
+    height: 70px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.ul{
+    display: flex;
+    width: 280px;
+    padding: 0;
+}
+
+.li{
+    position: relative;
+    list-style: none;
+    width: 70px;
+    height: 70px;
+    z-index: 1;
+}
+
+.li .a{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     width: 100%;
-    min-height: 130px;
-    color: white;
-    position: fixed;
-    z-index: 100;
+    text-align: center;
+    font-weight: 500;
+}
+
+.li .a:hover{
+    cursor: pointer;
+}
+
+.a .icone{
+    position: relative;
+    display: block;
+    line-height: 75px;
+    font-size: 1.5em;
+    text-align: center;
+    transition: 0.5s;
+}
+
+.li.ativo .a .icone{
+    transform: translateY(-35px);
+}
+
+.a .textoNav{
+    position: absolute;
+    font-weight: 500;
+    font-size: 0.8em;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.li.ativo .a .textoNav{
+    opacity: 1;
+    transform: translateY(10px);
+}
+
+.indicador{
+    position: absolute;
+    top: -50%;
+    width: 70px;
+    height: 70px;
+    background-image: linear-gradient(50deg, #ffc400, #ffc400, #ffcf2f);
+    box-sizing: border-box;
+    border-radius: 50%;
+    border: 6px solid #222327;
+    transition: 0.8s;
+}
+
+.indicador::before,
+.indicador::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+}
+
+.indicador::after{
+    right: -22px;
+    border-top-left-radius: 20px;
+    box-shadow: -1px -10px 0 0 #222327;
+}
+
+.li.ativo~.indicador{
+    --x: 0;
+    transform: translateX(var(--x));
+}
+
+.li:nth-child(2).ativo~.indicador{--x: 70px;}
+.li:nth-child(3).ativo~.indicador{--x: 140px;}
+.li:nth-child(4).ativo~.indicador{--x: 210px;}
+
+@media (max-width: 350px) {
+    .fundo{
+        height: auto;
+    }
+    .navbar{
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+        margin-block: 35px;
+        padding-bottom: 20px;
+    }
+    .ul{
+        width: 80%;
+        height: auto;
+        flex-direction: column;
+    }
+    .li{
+        width: 100%;
+        height: auto;
+        margin-top: 40px;
+        border-bottom: 1px solid #222327;
+    }
+    .li .a{
+        flex-direction: column;
+        width: 100%;
+    }
+    .a .icone{
+        line-height: 70px;
+        font-size: 2em;
+    }
+    .li.ativo .a .icone{
+        transform: translateY(-40px);
+    }
+    .a .textoNav{
+        font-size: 0.9em;
+        letter-spacing: 0.1em;
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    .indicador{
+        position: absolute;
+        top: 2.5%;
+        left: 5%;
+        width: 90%;
+        height: 40px;
+        padding-block: 20px;
+        border-radius: 10px;
+        border: 2px solid #222327;
+    }
+    .indicador::before, .indicador::after{
+        display: none;
+    }
+    .indicador::after{
+        display: none;
+    }
+    .li.ativo~.indicador{
+        --y: 0;
+        transform: translateY(var(--y));
+    }
+    .li:nth-child(2).ativo~.indicador{--y: 110px;}
+    .li:nth-child(3).ativo~.indicador{--y: 220px;}
+    .li:nth-child(4).ativo~.indicador{--y: 330px;}
 }
