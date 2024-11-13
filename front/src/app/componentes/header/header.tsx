@@ -18,16 +18,16 @@ export default function Header() {
         router.push('/');
         break;
       case 'login':
-        router.push('../paginaCadastro/page');
+        router.push('/');
         break;
       case 'informações':
-        router.push('/informacoes');
+        router.push('/');
         break;
       case 'mais':
-        router.push('/mais');
+        router.push('/');
         break;
       default:
-        router.push('/inicio');
+        router.push('/');
     }
   };
 
