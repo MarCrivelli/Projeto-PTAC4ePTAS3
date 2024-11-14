@@ -1,8 +1,7 @@
 'use client'
-import { useState } from "react";
+import React, { useState } from "react";
 import style from "./autenticacao.module.css";
 import Usuario from "@/app/interfaces/usuario";
-import React from 'react';
 import { useRouter } from 'next/navigation';
 
 export default function Autenticacao() {
@@ -15,7 +14,6 @@ export default function Autenticacao() {
     password: ''
   });
 
-  // Estado para controlar a presença da classe rightPanelActive
   const [isRightPanelActive, setIsRightPanelActive] = useState(false);
 
   const alterarNome = (novoNome: string) => {
@@ -23,62 +21,131 @@ export default function Autenticacao() {
       ...valoresAnteriores,
       nome: novoNome
     }));
-    console.log(usuario);
+  };
+
+  const alterarEmail = (novoEmail: string) => {
+    setUsuario((valoresAnteriores) => ({
+      ...valoresAnteriores,
+      email: novoEmail
+    }));
+  };
+
+  const alterarSenha = (novaSenha: string) => {
+    setUsuario((valoresAnteriores) => ({
+      ...valoresAnteriores,
+      password: novaSenha
+    }));
+  };
+
+  // Função para lidar com o cadastro
+  const handleCadastro = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    
+    try {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/cadastro`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(usuario),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert("Usuário cadastrado com sucesso!");
+        setIsRightPanelActive(false); // Redireciona para a tela de login
+      } else {
+        alert(`Erro: ${data.mensagem}`);
+      }
+    } catch (error) {
+      console.error("Erro ao cadastrar o usuário:", error);
+      alert("Erro ao cadastrar. Tente novamente.");
+    }
+  };
+
+  // Função para lidar com o login
+  const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    try {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/login`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: usuario.email,
+          password: usuario.password,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert("Login realizado com sucesso!");
+        router.push('/dashboard'); // Redireciona para o dashboard ou página principal
+      } else {
+        alert(`Erro: ${data.mensagem}`);
+      }
+    } catch (error) {
+      console.error("Erro ao fazer login:", error);
+      alert("Erro ao fazer login. Tente novamente.");
+    }
   };
 
   return (
     <div className={style.conteudoDoSite}>
-      {/* Adiciona a classe "rightPanelActive" com base no estado */}
       <div className={`${style.container} ${isRightPanelActive ? style.rightPanelActive : ''}`}>
         <div className={`${style.formContainer} ${style.signUpContainer}`}>
-          <form className={style.form} action={"#"}>
+          <form className={style.form} onSubmit={handleCadastro}>
             <h1 className={style.h1}>Crie sua Conta</h1>
-            <div className={style.containerRedesSociais}>
-              <a href="#" className={style.social}>
-                <i className="fa-brands fa-instagram"></i>
-              </a>
-              <a href="#" className={style.social}>
-                <i className="fa-brands fa-facebook"></i>
-              </a>
-              <a href="#" className={style.social}>
-                <i className="fa-brands fa-linkedin"></i>
-              </a>
-              <a href="#" className={style.social}>
-                <i className="fa-brands fa-reddit"></i>
-              </a>
-            </div>
-            <span className={style.span}>ou usar o e-mail para o cadastro</span>
-            <input className={style.input} type="text" placeholder="digite seu nome"/>
-            <input className={style.input} type="email" placeholder="digite seu e-mail"/>
-            <input className={style.input} type="password" placeholder="digite sua senha"/>
-            <button className={style.button}>Cadastrar</button>
+            <input
+              className={style.input}
+              type="text"
+              placeholder="digite seu nome"
+              value={usuario.nome}
+              onChange={(e) => alterarNome(e.target.value)}
+            />
+            <input
+              className={style.input}
+              type="email"
+              placeholder="digite seu e-mail"
+              value={usuario.email}
+              onChange={(e) => alterarEmail(e.target.value)}
+            />
+            <input
+              className={style.input}
+              type="password"
+              placeholder="digite sua senha"
+              value={usuario.password}
+              onChange={(e) => alterarSenha(e.target.value)}
+            />
+            <button className={style.button} type="submit">Cadastrar</button>
           </form>
         </div>
+
         <div className={`${style.formContainer} ${style.signInContainer}`}>
-          <form className={style.form} action={"#"}>
+          <form className={style.form} onSubmit={handleLogin}>
             <h1 className={style.h1}>Fazer Login</h1>
-            <div className={style.containerRedesSociais}>
-              <a href="#" className={style.social}>
-                <i className="fa-brands fa-instagram"></i>
-              </a>
-              <a href="#" className={style.social}>
-                <i className="fa-brands fa-facebook"></i>
-              </a>
-              <a href="#" className={style.social}>
-                <i className="fa-brands fa-linkedin"></i>
-              </a>
-              <a href="#" className={style.social}>
-                <i className="fa-brands fa-reddit"></i>
-              </a>
-            </div>
-            <span className={style.span}>ou usar o e-mail para o cadastro</span>
-            <input className={style.input} type="text" placeholder="digite seu nome"/>
-            <input className={style.input} type="email" placeholder="digite seu e-mail"/>
-            <input className={style.input} type="password" placeholder="digite sua senha"/>
-            <a className={style.a} href="#">Esqueceu sua senha?</a>
-            <button className={style.button}>Logar</button>
+            <input
+              className={style.input}
+              type="email"
+              placeholder="digite seu e-mail"
+              value={usuario.email}
+              onChange={(e) => alterarEmail(e.target.value)}
+            />
+            <input
+              className={style.input}
+              type="password"
+              placeholder="digite sua senha"
+              value={usuario.password}
+              onChange={(e) => alterarSenha(e.target.value)}
+            />
+            <button className={style.button} type="submit">Logar</button>
           </form>
         </div>
+
         <div className={style.overlayContainer}>
           <div className={style.overlay}>
             <div className={`${style.overlayPanel} ${style.overlayLeft}`}>

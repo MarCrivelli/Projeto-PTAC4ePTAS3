@@ -9,7 +9,7 @@ export default function PaginaBase() {
   return (
     <div>
         <Header/>
-        <Home/>
+        <Autenticacao/>
     </div>
   );
 }
