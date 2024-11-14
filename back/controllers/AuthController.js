@@ -6,7 +6,9 @@ const jwt = require("jsonwebtoken");
 class AuthController {
 
     static async cadastro(req, res){
-        const{nome, email, password} = req.body;
+        const {nome, email, password} = req.body;
+
+        console.log(req.body)
 
         if(!nome || nome.length < 6){
             return res.status(422).json({

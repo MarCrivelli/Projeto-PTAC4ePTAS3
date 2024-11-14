@@ -51,8 +51,9 @@ export default function Autenticacao() {
       });
 
       const data = await response.json();
+      console.log(data)
 
-      if (response.ok) {
+      if (!data.erro) {
         alert("Usuário cadastrado com sucesso!");
         setIsRightPanelActive(false); // Redireciona para a tela de login
       } else {
@@ -79,9 +80,9 @@ export default function Autenticacao() {
           password: usuario.password,
         }),
       });
-
+      
       const data = await response.json();
-
+      console.log(data)
       if (response.ok) {
         alert("Login realizado com sucesso!");
         router.push('/dashboard'); // Redireciona para o dashboard ou página principal

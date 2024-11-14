@@ -4,9 +4,7 @@ const cors = require("cors"); // Importando o cors
 const app = express();
 
 // Configurando o CORS para permitir requisições do front-end
-app.use(cors({
-  origin: "http://localhost:3000" // Permitir apenas o domínio do front-end
-}));
+//app.use(cors());
 
 app.use(express.json());
 
