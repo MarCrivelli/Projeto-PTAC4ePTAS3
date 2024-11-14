@@ -1,0 +1,81 @@
+/*!*******************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/page.module.css ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************/
+.page_conteudoDoSite__NAI2q{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;    
+  height: 100vh;
+  background: linear-gradient(to right, rgb(0, 5, 43), rgb(42, 16, 86), rgb(254, 189, 147));
+}
+
+.page_CardLogin__QQ4gm{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url('https://i.pinimg.com/564x/21/47/54/214754c4daf328133a6b1cefd40104ed.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 600px;
+  height: 500px;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.3);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px); 
+  border-radius: 15px; 
+  box-shadow: 10px 4px 15px rgba(20, 2, 63, 0.801);
+}
+
+.page_itensLogin__F9QhU{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(21, 25, 73, 0.616);
+  width: 50%;
+  height: 300px;
+  border-radius: 10px;
+}
+
+.page_inputs__926m6{
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.page_labelLogin__jNAy7{
+  color: rgb(224, 224, 224);
+  font-size: 22px;
+}
+
+.page_email__xbX5u, .page_senha___jWpd{
+  width: 100%;
+  border: none;
+  padding: 5px;
+  border: 2px solid rgb(18, 10, 56);
+  margin-bottom: 10px;
+}
+
+.page_botaoLogin__5OuGf{
+  cursor: pointer;
+  width: 210px;
+  border-radius: 4px;
+  border: none;
+  padding: 10px;
+  background-color: rgb(0, 5, 43);
+  color: white;
+  font-weight: bold;
+  filter: drop-shadow()
+}
+
+.page_botaoLogin__5OuGf:hover{
+  background-color: red;
+}
+
