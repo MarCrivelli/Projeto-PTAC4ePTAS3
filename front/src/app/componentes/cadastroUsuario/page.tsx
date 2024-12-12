@@ -6,4 +6,8 @@ interface Usuario{
     tipo?: string
 }
 
-export default Usuario;
+export default function PagUsuario(){
+    return(
+        <div></div>
+    )
+}
