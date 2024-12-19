@@ -6,3 +6,6 @@ no caso aqui temos a pasta "back", onde estão os arquivos de PTAS e a pasta "fr
     Se for trocar de pasta, ou seja, se estiver fazendo a parte de PTAS e quiser fazer uma parte de PTAC, ou vice-versa, digite no 
 terminal "cd .." para sair da pasta e depois digite "cd + o nome da pasta que deseja abrir".
 
+npx prisma generate
+
+dps q baixar o nodemon no terminal colocar "npx prisma migrate dev --name models_mesa_e_reserva

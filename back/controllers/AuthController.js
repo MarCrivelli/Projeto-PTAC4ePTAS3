@@ -110,6 +110,27 @@ class AuthController {
             token: token,
         })
     }
+
+    static async verificaAutenticacao(req, res, next){
+        const authHeader = req.headers["authorization"];
+
+        const token = authHeader && authHeader.split(" ")[1];
+
+        if(!token){
+            return res.status(422).json({message: "token não encontrado."})
+        }
+
+        jwt.verify(token, process.env.SECRET_KEY, (err, payload) => {
+            if(err){
+            return res.status(401).json({msg: "token inválido"})
+            }
+
+            req.usuarioId = payload.id;
+            next()
+        });
+
+    }
+
 }
 
 //Vai indicar que, ao ser requerido esse arquivo, o que vai ser importado vai ser a classe AuthController.
