@@ -1,0 +1,86 @@
+.fundoConteudo {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  height: 0px;
+  background-image: url("/fundoEspaço.jpeg");
+  background-repeat: repeat;
+  background-size: 350px 220px;
+  background-position: top left;
+  padding: 1.7%;
+}
+
+.conteudoSite {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 120px;
+  width: 100%;
+  min-height: 100%;
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
+  padding-inline: 50px;
+  gap: 50px;
+}
+
+.infoUsuario,
+.alterarInfoUsuario {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  height: 85%;
+  border: 1px solid #b3b3b3;
+  border-radius: 20px;
+  padding: 20px;
+  gap: 20px;
+}
+
+.tituloInfoUsuario {
+  margin-block: 10px 30px;
+  font-size: 3rem;
+}
+
+.alinharCatEInfo {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 20px;
+}
+
+.categoriaInfo {
+  width: 120px;
+}
+
+.textoInfoUsuario,
+.categoriaInfo,
+.categoriaAlteracao {
+  font-size: 1.8rem;
+}
+
+.categoriaAlteracao{
+    width: 200px;
+}
+
+.inputAlterar {
+  height: 36px;
+  width: 30%;
+}
+
+.botaoAlterar{
+    width: 200px;
+    height: 36px;
+    margin-inline: auto;
+    margin-top: 40px;
+    border: 1px solid #b3b3b3;
+    background-color: #0066ff;
+    color: white;
+    font-size: 1rem;
+    border-radius: 7px;
+}
+
+.botaoAlterar:hover{
+    cursor: pointer;
+    background-color: #3c8aff;
+}

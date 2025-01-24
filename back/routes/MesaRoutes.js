@@ -1,4 +1,18 @@
-//implementar funcionalidade de cadastro de mesa
+const express = require("express");
+const router = express.Router();
+const MesaController = require("../controllers/MesaController");
+const AuthController = require("../controllers/AuthController");
 
-//testar e depois criar uma middleware para verificar se o usuário é um adm
-//adicionar o middleware que só permite o acesso só de usuários e adm
+// Rota para cadastrar uma nova mesa (apenas para administradores)
+router.post(
+  "/novo",
+  AuthController.verificaAutenticacao,
+  AuthController.verificaPermissaoAdm,
+  MesaController.novaMesa
+);
+
+// Rota para buscar todas as mesas
+router.get("/", MesaController.buscarMesas);
+
+module.exports = router;
+

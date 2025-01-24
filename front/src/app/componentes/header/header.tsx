@@ -1,96 +1,80 @@
-'use client'
-import React, { useState } from "react";
-import { useRouter } from 'next/navigation'; // Importa o roteador do Next.js
+"use client";
+import React from "react";
+import Link from "next/link"; 
+import { usePathname } from "next/navigation"; // Hook para capturar o pathname atual
 import style from "./header.module.css";
-import '@fortawesome/fontawesome-free/css/all.min.css';
-import Cadastro from "../paginaAutenticacao/page"
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
 export default function Header() {
-  const router = useRouter(); // Inicializa o roteador do Next.js
-  const [telaAtiva, setTelaAtiva] = useState("início");
-
-  // Função para alternar entre as telas
-  const handleNavigation = (novaTela: string) => {
-    setTelaAtiva(novaTela);
-    // Redireciona para a rota correspondente
-    switch (novaTela) {
-      case 'início':
-        router.push('/');
-        break;
-      case 'login':
-        router.push('/');
-        break;
-      case 'informações':
-        router.push('/');
-        break;
-      case 'mais':
-        router.push('/');
-        break;
-      default:
-        router.push('/');
-    }
-  };
+  const pathname = usePathname();
 
   return (
-    <div className={style.fundo}>
-      <div className={style.navbar}>
-        <ul className={style.ul}>
-          
-          {/* Link para a página Início */}
-          <li
-            className={`${style.li} ${telaAtiva === "início" ? style.ativo : ""}`}
-            onClick={() => handleNavigation("início")}
-          >
-            <a className={style.a}>
-              <span className={style.icone}>
-                <i className="fa-solid fa-house"></i>
-              </span>
-              <span className={style.textoNav}>Início</span>
-            </a>
-          </li>
+    <div className={style.navbar}>
+      <ul className={style.ul}>
+        {/* Link para a página Início */}
+        <li
+          className={`${style.li} ${
+            pathname === "/componentes/home" ? style.ativo : ""
+          }`}
+        >
+          <Link href="/componentes/home" className={style.linkHeader}>
+            <span className={style.icone}>
+              <i className="fa-solid fa-house"></i>
+            </span>
+            <span className={style.textoNav}>Início</span>
+          </Link>
+        </li>
 
-          {/* Link para a página Login */}
-          <li
-            className={`${style.li} ${telaAtiva === "login" ? style.ativo : ""}`}
-            onClick={() => handleNavigation("login")}
+        {/* Link para a página de autenticação */}
+        <li
+          className={`${style.li} ${
+            pathname === "/componentes/paginaAutenticacao" ? style.ativo : ""
+          }`}
+        >
+          <Link
+            href="/componentes/paginaAutenticacao"
+            className={style.linkHeader}
           >
-            <a className={style.a}>
-              <span className={style.icone}>
-                <i className="fa-solid fa-user"></i>
-              </span>
-              <span className={style.textoNav}>Autenticar Usuário</span>
-            </a>
-          </li>
+            <span className={style.icone}>
+              <i className="fa-solid fa-user-plus"></i>
+            </span>
+            <span className={style.textoNav}>Autenticação</span>
+          </Link>
+        </li>
 
-          {/* Link para a página Informações */}
-          <li
-            className={`${style.li} ${telaAtiva === "informações" ? style.ativo : ""}`}
-            onClick={() => handleNavigation("informações")}
+        {/* Link para a página Informações */}
+        <li
+          className={`${style.li} ${
+            pathname === "/componentes/cadastroReserva" ? style.ativo : ""
+          }`}
+        >
+          <Link
+            href="/componentes/cadastroReserva"
+            className={style.linkHeader}
           >
-            <a className={style.a}>
-              <span className={style.icone}>
-                <i className="fa-solid fa-info-circle"></i>
-              </span>
-              <span className={style.textoNav}>Informações</span>
-            </a>
-          </li>
+            <span className={style.icone}>
+              <i className="fa-solid fa-address-book"></i>
+            </span>
+            <span className={style.textoNav}>Reservas</span>
+          </Link>
+        </li>
 
-          {/* Link para a página Mais */}
-          <li
-            className={`${style.li} ${telaAtiva === "mais" ? style.ativo : ""}`}
-            onClick={() => handleNavigation("mais")}
-          >
-            <a className={style.a}>
-              <span className={style.icone}>
-                <i className="fa-solid fa-ellipsis-h"></i>
-              </span>
-              <span className={style.textoNav}>Mais</span>
-            </a>
-          </li>
+        {/* Link para a página Mais */}
+        <li
+          className={`${style.li} ${
+            pathname === "/componentes/perfilUsuario" ? style.ativo : ""
+          }`}
+        >
+          <Link href="/componentes/perfil" className={style.linkHeader}>
+            <span className={style.icone}>
+              <i className="fa-solid fa-person"></i>
+            </span>
+            <span className={style.textoNav}>Perfil</span>
+          </Link>
+        </li>
 
-          <div className={style.indicador}></div>
-        </ul>
-      </div>
+        <div className={style.indicador}></div>
+      </ul>
     </div>
   );
 }

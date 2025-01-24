@@ -2,31 +2,26 @@
 
 @import url("https://fonts.googleapis.com/css?family=Poppins");
 
-.fundo{
-    height: 16vh;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    flex-direction: column;
-    background: #222327;
-    margin: 0;
-}
 
 .icone, .textoNav{
     color: #091727;
 }
 
 .navbar{
-    position: relative;
+    position: absolute;
+    left: 50%;
+    top: 4%;
+    transform: translateX(-50%);
     margin-bottom: 5px;
     width: 340px;
     height: 70px;
-    background: #fff;
+    background: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
     font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid #b3b3b3;
 }
 
 .ul{
@@ -43,7 +38,7 @@
     z-index: 1;
 }
 
-.li .a{
+.li .linkHeader{
     display: flex;
     position: relative;
     justify-content: center;
@@ -54,11 +49,11 @@
     font-weight: 500;
 }
 
-.li .a:hover{
+.li .linkHeader:hover{
     cursor: pointer;
 }
 
-.a .icone{
+.linkHeader .icone{
     position: relative;
     display: block;
     line-height: 75px;
@@ -67,11 +62,11 @@
     transition: 0.5s;
 }
 
-.li.ativo .a .icone{
+.li.ativo .linkHeader .icone{
     transform: translateY(-35px);
 }
 
-.a .textoNav{
+.linkHeader .textoNav{
     position: absolute;
     font-weight: 500;
     font-size: 0.8em;
@@ -81,7 +76,7 @@
     transform: translateY(20px);
 }
 
-.li.ativo .a .textoNav{
+.li.ativo .linkHeader .textoNav{
     opacity: 1;
     transform: translateY(10px);
 }
@@ -91,11 +86,11 @@
     top: -50%;
     width: 70px;
     height: 70px;
-    background: linear-gradient(45deg, #ff4a90, #ff7a8b) no-repeat 0 0 / cover;
+    background: linear-gradient(45deg, #0059ff, #00fff2) no-repeat 0 0 / cover;
     box-sizing: border-box;
     border-radius: 50%;
     border: 6px solid #222327;
-    transition: 0.8s;
+    transition: transform 0.4s ease, background 0.4s ease;
 }
 
 .indicador::before,
@@ -111,7 +106,6 @@
 .indicador::after{
     right: -22px;
     border-top-left-radius: 20px;
-    box-shadow: -1px -10px 0 0 #222327;
 }
 
 .li.ativo~.indicador{
@@ -145,18 +139,18 @@
         margin-top: 40px;
         border-bottom: 1px solid #222327;
     }
-    .li .a{
+    .li .linkHeader{
         flex-direction: column;
         width: 100%;
     }
-    .a .icone{
+    .linkHeader .icone{
         line-height: 70px;
         font-size: 2em;
     }
-    .li.ativo .a .icone{
+    .li.ativo .linkHeader .icone{
         transform: translateY(-40px);
     }
-    .a .textoNav{
+    .linkHeader .textoNav{
         font-size: 0.9em;
         letter-spacing: 0.1em;
         opacity: 0;

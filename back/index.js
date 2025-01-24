@@ -1,24 +1,27 @@
 const express = require("express");
-const cors = require("cors"); // Importando o cors
-
+const cors = require("cors");
 const app = express();
+const AuthController = require("./controllers/AuthController");
 
-const AuthController = require("./controllers/AuthController")
-
-// Configurando o CORS para permitir requisições do front-end
-//app.use(cors());
-
+app.use(cors()); 
 app.use(express.json());
 
+// Importando rotas
 const authRoutes = require("./routes/authRoutes");
-app.use("/auth", authRoutes);
+const perfilRoutes = require("./routes/perfilRoutes");
+const mesaRoutes = require("./routes/MesaRoutes"); 
+const reservaRoutes = require("./routes/reservaRoutes"); 
 
-const perfilROutes = require("./routes/perfilRoutes")
+// Configurar rotas
+app.use("/auth", authRoutes);
 app.use("/perfil", AuthController.verificaAutenticacao, perfilRoutes);
+app.use("/mesa", AuthController.verificaAutenticacao, mesaRoutes);
+app.use("/reservas", AuthController.verificaAutenticacao, reservaRoutes);
+
 
 app.get("/privado", AuthController.verificaAutenticacao, (req, res) => {
   res.json({
-    msg: "você acessou uma rota restrita"
+    msg: "Você acessou uma rota restrita!",
   });
 });
 
