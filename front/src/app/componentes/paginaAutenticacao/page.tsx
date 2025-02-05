@@ -39,9 +39,10 @@ export default function Autenticacao() {
 
   // Função para lidar com o cadastro
   const handleCadastro = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+    event.preventDefault(); // Impede que a página recarregue ao submeter o formulário.
 
     try {
+      //Envia uma requisição POST para a API de cadastro.
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL}/auth/cadastro`,
         {

@@ -4,6 +4,8 @@ import style from "./reserva.module.css";
 import Header from "../header/header";
 import React, { useState, useEffect } from "react";
 import Select from "react-select";
+import Mesa from "../../interfaces/mesa";
+import Reserva from "../../interfaces/reserva";
 import Usuario from "../../interfaces/usuario";
 
 export default function PagReserva() {
