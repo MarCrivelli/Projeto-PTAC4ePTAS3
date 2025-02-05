@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Link from "next/link"; 
+import Link from "next/link";
 import { usePathname } from "next/navigation"; // Hook para capturar o pathname atual
 import style from "./header.module.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";

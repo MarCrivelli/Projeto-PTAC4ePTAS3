@@ -4,6 +4,7 @@ import style from "./reserva.module.css";
 import Header from "../header/header";
 import React, { useState, useEffect } from "react";
 import Select from "react-select";
+import Usuario from "../../interfaces/usuario";
 
 export default function PagReserva() {
   const [categoriaAtiva, setCategoriaAtiva] = useState<string>("cliente"); // Mini menu
@@ -238,7 +239,7 @@ export default function PagReserva() {
               <h1 className={style.tituloCategoria}>Clientes Cadastrados</h1>
               <Select
                 inputId="meuId"
-                options={reservasUsuario}
+                options={usuarios}
                 placeholder="Selecione ou digite um cliente"
               />
               <div className={style.informacoesClientes}>

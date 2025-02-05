@@ -102,7 +102,7 @@ export default function Perfil() {
               </div>
               <div className={style.alinharCatEInfo}>
                 <strong className={style.categoriaInfo}>Acesso:</strong>
-                <p className={style.textoInfoUsuario}>{usuario.acesso}</p>
+                <p className={style.textoInfoUsuario}>adm</p>
               </div>
             </div>
             <div className={style.alterarInfoUsuario}>

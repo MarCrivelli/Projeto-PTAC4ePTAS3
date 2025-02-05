@@ -5,6 +5,8 @@ const PerfilController = require("../controllers/perfilController");
 
 router.get("/", PerfilController.getPerfil);
 
+router.get("/", PerfilController.puxarUsuarios);
+
 router.patch("/", PerfilController.atualizaPerfil);
 
 // POST e GET

@@ -31,6 +31,36 @@ class PerfilController {
           });
         }
       }
+      //achar vários usuários
+      static async puxarUsuarios(req, res) {
+        try {
+          const usuarios = await prisma.usuario.findAll({
+            select: {
+              id: true,
+              nome: true,
+              email: true,
+              tipo: true,
+            },
+          });
+      
+          if (!usuarios) {
+            return res.status(404).json({
+              erro: true,
+              mensagem: "Usuário não encontrado.",
+            });
+          }
+      
+          res.status(200).json({
+            erro: false,
+            usuarios,
+          });
+        } catch (err) {
+          res.status(500).json({
+            erro: true,
+            mensagem: "Erro ao buscar o perfil.",
+          });
+        }
+      }
       
 //função de update
 static async atualizaPerfil(req, res) {
